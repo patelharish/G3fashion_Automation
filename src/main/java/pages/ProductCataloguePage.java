@@ -2,16 +2,20 @@ package pages;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ProductCataloguePage {
+import utils.AbstractComponent;
+
+public class ProductCataloguePage extends AbstractComponent{
 
 	WebDriver driver;
 
 	public ProductCataloguePage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -25,4 +29,20 @@ public class ProductCataloguePage {
 	
 	@FindBy(css = ".col-md-4")
 	List<WebElement> products;
+	
+	By productsBy = By.cssSelector(".col-md-4");
+	
+	public void goAnyCategory() {
+		clickOnAnyCategory.click();
+	}
+	
+	public List<WebElement> getProductList() {
+		waitForElementToAppear(productsBy);
+		return products;
+	}
+	
+	public void getAnyProductAndClick() {
+	   getProductList().stream().findFirst().ifPresent(product -> product.click());
+	}
+	
 }

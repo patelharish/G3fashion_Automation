@@ -12,6 +12,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import pages.AddToCartPage;
+import pages.ProductCataloguePage;
 
 public class AddToCartTest {
  
@@ -42,13 +43,17 @@ public class AddToCartTest {
 		
 		//driver.findElement(By.cssSelector("button[type='submit']")).click();
 		
-		driver.findElement(By.xpath("(//img[@id='ibidle'])[1]")).click();
+		ProductCataloguePage productCataloguePage = new ProductCataloguePage(driver);
+		productCataloguePage.goAnyCategory();
+		productCataloguePage.getProductList();
+		productCataloguePage.getAnyProductAndClick();
+		/*driver.findElement(By.xpath("(//img[@id='ibidle'])[1]")).click();
 		
 		List<WebElement> products = driver.findElements(By.cssSelector(".col-md-4"));
 		
 		products.stream()
         .findFirst()  // Get the first product
-        .ifPresent(product -> product.click());  // If present, click on it
+        .ifPresent(product -> product.click());  // If present, click on it */
 		
 		// Get all window handles (handles for both tabs)
 		Set<String> windHandles = driver.getWindowHandles();
