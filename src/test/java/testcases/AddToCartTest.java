@@ -44,7 +44,7 @@ public class AddToCartTest {
 		
 		driver.findElement(By.xpath("(//img[@id='ibidle'])[1]")).click();
 		
-		List<WebElement> products = driver.findElements(By.cssSelector(".col-md-4"));
+		 List<WebElement> products = driver.findElements(By.cssSelector(".col-md-4"));
 		
 		products.stream()
         .findFirst()  // Get the first product
