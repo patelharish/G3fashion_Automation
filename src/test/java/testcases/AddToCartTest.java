@@ -64,9 +64,9 @@ public class AddToCartTest {
         driver.switchTo().window(windows[1]);
         
         driver.findElement(By.xpath("(//input[@id='km-select-size-2'])[1]")).click();
-        
+        Thread.sleep(3000);    
         driver.findElement(By.xpath("(//button[@id='km-add-to-cart'])[1]")).click();
-        
+        Thread.sleep(3000);  
         driver.findElement(By.xpath("(//div[@id='i3n3em'])[1]")).click();
         
         Thread.sleep(3000);
