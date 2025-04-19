@@ -12,7 +12,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import pages.AddToCartPage;
+import pages.LoginPage;
+import pages.MiniCartPage;
+import pages.PdpPage;
 import pages.ProductCataloguePage;
+import pages.ShoppingCartPage;
 
 public class AddToCartTest {
  
@@ -23,17 +27,13 @@ public class AddToCartTest {
 		driver = new ChromeDriver();
 		
 		// driver.get("https://g3fashion.com/");
+		driver.get("https://g3fashion.com/");
 		
 		driver.manage().window().maximize();
 		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
-		AddToCartPage addToCart = new AddToCartPage(driver);
-		addToCart.goTo();
-		addToCart.loginApplication("harishpatel01.gh@gmail.com", "Harish@321");
-		
-	
-		//driver.findElement(By.cssSelector("#izzzh4")).click();
+	    //driver.findElement(By.cssSelector("#izzzh4")).click();
 		
 		//driver.findElement(By.xpath("(//span[normalize-space()='Login using email'])[1]")).click();
 		
@@ -43,38 +43,50 @@ public class AddToCartTest {
 		
 		//driver.findElement(By.cssSelector("button[type='submit']")).click();
 		
-		ProductCataloguePage productCataloguePage = new ProductCataloguePage(driver);
-		productCataloguePage.goAnyCategory();
-		productCataloguePage.getProductList();
-		productCataloguePage.getAnyProductAndClick();
-		/*driver.findElement(By.xpath("(//img[@id='ibidle'])[1]")).click();
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.loginApplication("harishpatel01.gh@gmail.com", "Harish@321");
+			
+	   /*driver.findElement(By.xpath("(//img[@id='ibidle'])[1]")).click();
 		
 		List<WebElement> products = driver.findElements(By.cssSelector(".col-md-4"));
 		
 		products.stream()
         .findFirst()  // Get the first product
         .ifPresent(product -> product.click());  // If present, click on it */
+		 
+		ProductCataloguePage productCataloguePage = new ProductCataloguePage(driver);
+		productCataloguePage.goAnyCategory();
+		productCataloguePage.getProductList();
+		productCataloguePage.getAnyProductAndClick();
 		
 		// Get all window handles (handles for both tabs)
-		Set<String> windHandles = driver.getWindowHandles();
+		/*Set<String> windHandles = driver.getWindowHandles();
 		
 		// Convert the set to a list to easily work with the window handles
         String[] windows = windHandles.toArray(new String[0]);
         
-        driver.switchTo().window(windows[1]);
+        driver.switchTo().window(windows[1]);*/
+		PdpPage pdpPage = new PdpPage(driver);
+		pdpPage.switchToPdpWindow();
+		
+		//driver.findElement(By.xpath("(//input[@id='km-select-size-2'])[1]")).click();
+        pdpPage.selectAnySizeOfProduct();
         
-        driver.findElement(By.xpath("(//input[@id='km-select-size-2'])[1]")).click();
-        Thread.sleep(3000);    
-        driver.findElement(By.xpath("(//button[@id='km-add-to-cart'])[1]")).click();
-        Thread.sleep(3000);  
-        driver.findElement(By.xpath("(//div[@id='i3n3em'])[1]")).click();
+        //driver.findElement(By.xpath("(//button[@id='km-add-to-cart'])[1]")).click();
+        pdpPage.clickOnAddToCartBtn();
         
-        Thread.sleep(3000);
-        String actual = driver.findElement(By.xpath("//h1[normalize-space()='Shopping Cart']")).getText();
+        //driver.findElement(By.xpath("(//div[@id='i3n3em'])[1]")).click();
+        MiniCartPage miniCartPage = new MiniCartPage(driver);
+        miniCartPage.clickOnViewCartBtn();
+        
+        /*Thread.sleep(3000);
+        String actual = driver.findElement(By.xpath("//h1[normalize-space()='Shopping Cart']")).getText();*/
+        ShoppingCartPage shoppingCart = new ShoppingCartPage(driver);
+        String actualHeading = shoppingCart.getShoppingCartHeading();
            
-        String expected = "Shopping Cart";
+        String expectedHeading = "Shopping Cart";
         
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actualHeading, expectedHeading);
 				
 		driver.quit();
 		
