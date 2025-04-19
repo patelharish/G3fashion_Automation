@@ -11,7 +11,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import pages.AddToCartPage;
 import pages.LoginPage;
 import pages.MiniCartPage;
 import pages.PdpPage;
