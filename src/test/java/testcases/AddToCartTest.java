@@ -89,7 +89,6 @@ public class AddToCartTest {
         Assert.assertEquals(actualHeading, expectedHeading);
 				
 		driver.quit();
-		driver.close();
 		
 			
 	}
