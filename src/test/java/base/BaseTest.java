@@ -2,7 +2,9 @@ package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 import pages.LoginPage;
@@ -21,7 +23,7 @@ public class BaseTest {
 	protected ShoppingCartPage shoppingCart;
 	protected SortingPage sortingPage;
 
-	@BeforeTest
+	@BeforeMethod
 	public void setUp() {
 
 		driver = new ChromeDriver();
@@ -39,7 +41,7 @@ public class BaseTest {
 		sortingPage = new SortingPage(driver);
 	}
 
-	@AfterTest
+	@AfterMethod
 	public void tearDown() {
 		if (driver != null) {
 			driver.close();
