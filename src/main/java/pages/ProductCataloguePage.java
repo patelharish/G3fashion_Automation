@@ -24,7 +24,7 @@ public class ProductCataloguePage extends AbstractComponent{
 	//List<WebElement> products = driver.findElements(By.cssSelector(".col-md-4"));
 
 	
-	@FindBy(xpath = "(//img[@id='ibidle'])[1]")
+	@FindBy(css = "#ikrbgza")
 	WebElement clickOnAnyCategory;
 	
 	@FindBy(css = ".col-md-4")

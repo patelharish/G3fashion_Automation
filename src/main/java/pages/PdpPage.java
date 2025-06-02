@@ -32,9 +32,9 @@ public class PdpPage extends AbstractComponent{
         driver.switchTo().window(windows[1]);     
 	}
 	 
-	public void selectAnySizeOfProduct() {
+	/*public void selectAnySizeOfProduct() {
 		selectSize.click();
-	}
+	}*/
 	
 	public void clickOnAddToCartBtn() {
 		addToCartBtn.click();
