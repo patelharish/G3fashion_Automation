@@ -7,12 +7,15 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
+import pages.GlobalSearchPage;
 import pages.LoginPage;
 import pages.MiniCartPage;
 import pages.PdpPage;
 import pages.ProductCataloguePage;
 import pages.ShoppingCartPage;
 import pages.SortingPage;
+import pages.WishlistPage;
+import testcases.GlobalSearch;
 
 public class BaseTest {
 	protected WebDriver driver;
@@ -22,6 +25,8 @@ public class BaseTest {
 	protected MiniCartPage miniCartPage;
 	protected ShoppingCartPage shoppingCart;
 	protected SortingPage sortingPage;
+	protected GlobalSearchPage globalSearchPage;
+	protected WishlistPage wishlistPage;
 
 	@BeforeMethod
 	public void setUp() {
@@ -39,9 +44,12 @@ public class BaseTest {
 		miniCartPage = new MiniCartPage(driver);
 		shoppingCart = new ShoppingCartPage(driver);
 		sortingPage = new SortingPage(driver);
+		globalSearchPage = new GlobalSearchPage(driver); 
+		wishlistPage = new WishlistPage(driver);
+		
 	}
 
-	@AfterMethod
+	//@AfterMethod
 	public void tearDown() {
 		if (driver != null) {
 			driver.close();
