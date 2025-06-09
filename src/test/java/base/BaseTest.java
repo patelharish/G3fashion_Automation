@@ -2,12 +2,8 @@ package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-
 import pages.GlobalSearchPage;
 import pages.LoginPage;
 import pages.MiniCartPage;
@@ -16,7 +12,6 @@ import pages.ProductCataloguePage;
 import pages.ShoppingCartPage;
 import pages.SortingPage;
 import pages.WishlistPage;
-import testcases.GlobalSearch;
 
 public class BaseTest {
 	protected WebDriver driver;
@@ -32,10 +27,8 @@ public class BaseTest {
 	@BeforeMethod
 	public void setUp() {
 		
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--no-sandbox", "--disable-dev-shm-usage", "--headless=new", "--disable-gpu");
-
-		driver = new ChromeDriver(options);
+		
+		driver = new ChromeDriver();
 
 		// driver.get("https://g3fashion.com/");
 		driver.get("https://g3fashion.com/");

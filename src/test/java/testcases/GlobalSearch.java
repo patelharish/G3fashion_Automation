@@ -13,7 +13,6 @@ public class GlobalSearch extends BaseTest{
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		loginPage.loginApplication("harishpatel01.gh@gmail.com", "Harish@321");
 		globalSearchPage.enterSearchText("Lehenga");
-		Thread.sleep(3000);
 		wishlistPage.clickOnWishlistBtn();
 	}
 }
