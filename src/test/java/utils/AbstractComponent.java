@@ -26,12 +26,12 @@ public class AbstractComponent {
 	
 
 	public void waitForElementToAppear(By findBy) {
-	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
 	}
 	
 	public void waitForElementToAppearFoWebEle(WebElement element) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(element));
 		}
 	
@@ -40,7 +40,7 @@ public class AbstractComponent {
 	}
 	
 	public void waitForElementsToDisappear(WebElement ele) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.invisibilityOf(ele));
 	}
 	
