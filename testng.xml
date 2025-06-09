@@ -5,6 +5,7 @@
     <classes>
       <class name="base.BaseTest"/>
       <class name="testcases.AddToCartTest"/>
+      <class name="testcases.GlobalSearch"></class>
       <class name="testcases.PlpSorting"/>
     </classes>
   </test> <!-- Test -->

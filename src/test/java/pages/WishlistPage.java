@@ -2,6 +2,7 @@ package pages;
 
 import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,7 +25,11 @@ public class WishlistPage extends AbstractComponent{
 	
 	public void clickOnWishlistBtn() throws InterruptedException {
 		for(int i=0; i<1; i++) {
-			wishlistBtn.get(i).click();
+			//waitForElementToClickableForWebEle(wishlistBtn.get(i));
+			WebElement el = wishlistBtn.get(i);
+			waitForElementToClickableForWebEle(el, 10);
+	        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", el);
+	        el.click();
 		}
 	}
 	
