@@ -33,8 +33,10 @@ public class SortingPage extends AbstractComponent{
 	
 	// Action methods
     public void applySortLowToHigh() {
+    	waitForElementToClickable2(clickSortingBtn);
     	clickSortingBtn.click();
-        sortByPriceLowToHigh.click();
+    	waitForElementToClickable2(sortByPriceLowToHigh);
+    	sortByPriceLowToHigh.click();
     }
     
  // Parse visible prices into Integer list

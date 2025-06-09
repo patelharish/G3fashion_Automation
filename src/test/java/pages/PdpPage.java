@@ -37,6 +37,7 @@ public class PdpPage extends AbstractComponent{
 	}*/
 	
 	public void clickOnAddToCartBtn() {
+		waitForElementToClickable2(addToCartBtn);
 		addToCartBtn.click();
 	}
 	

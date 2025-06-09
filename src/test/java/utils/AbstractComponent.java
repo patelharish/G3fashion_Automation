@@ -54,4 +54,10 @@ public class AbstractComponent {
 		wait.until(ExpectedConditions.visibilityOf(ele)); // wait for visibility
 	    wait.until(ExpectedConditions.elementToBeClickable(ele)); // wait for clickability
 	}
+	
+	public void waitForElementToClickable2(WebElement ele) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(ele));
+	}
+	
 }
